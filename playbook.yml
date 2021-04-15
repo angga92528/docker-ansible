@@ -9,7 +9,7 @@
             - python3-docker
             - python
             - python-docker
-          state: present
+         state: present
        when: ansible_distribution == "Ubuntu"
      - name: install phyton-docker dicentos
        yum:
