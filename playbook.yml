@@ -10,24 +10,24 @@
             - python
             - python-docker
          state: present
-       when: ansible_distribution == "Ubuntu"
-     - name: install phyton-docker dicentos
-       yum:
-          name:
-             - python
-             - python-docker
+      when: ansible_distribution == "Ubuntu"
+    - name: install phyton-docker dicentos
+      yum:
+         name:
+            - python
+            - python-docker
+         state: present
+       when: ansible_distribution == "CentOS"
+     - name: pull image docker
+       docker_image:
+          name: "{{ image }}"
           state: present
-        when: ansible_distribution == "CentOS"
-      - name: pull image docker
-        docker_image:
-           name: "{{ image }}"
-           state: present
-           force: yes
-      - name: create containers
-        docker_container:
-           name: docker ansible
-           image: "{{ image }}"
-           state: started
-           published_ports:
-           - 10000:80
-           recreate: yes 
+          force: yes
+     - name: create containers
+       docker_container:
+          name: docker ansible
+          image: "{{ image }}"
+          state: started
+          published_ports:
+          - 10000:80
+          recreate: yes 
