@@ -16,7 +16,7 @@
           name:
              - python
              - python-docker
-           state: present
+          state: present
         when: ansible_distribution == "CentOS"
       - name: pull image docker
         docker_image:
@@ -28,6 +28,6 @@
            name: docker ansible
            image: "{{ image }}"
            state: started
-		       published_ports:
-		       - 10000:80
-		       recreate: yes 
+           published_ports:
+           - 10000:80
+           recreate: yes 
