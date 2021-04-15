@@ -25,7 +25,7 @@
          force: yes
     - name: create containers
       docker_container:
-         name: docker ansible
+         name: docker-ansible
          image: "{{ image }}"
          state: started
          published_ports:
